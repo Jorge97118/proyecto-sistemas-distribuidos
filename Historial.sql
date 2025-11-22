@@ -1,0 +1,9 @@
+CREATE TABLE messages (
+    id BIGSERIAL PRIMARY KEY,
+    sender_id INTEGER NOT NULL,
+    receiver_id INTEGER NOT NULL,
+    content TEXT NOT NULL,
+    timestamp TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sender_id) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (receiver_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
